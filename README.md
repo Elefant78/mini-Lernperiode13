@@ -29,4 +29,22 @@ int main(void)
 This is the Code for hello World. It looks pretty normal but there is a lot of syntax which could result in some anoyning mistakes. The realtion with the Terminal is intressting as it requers more logic.
 
 Next I wated to take Input of the User like a Console.readline. 
-So it goes back to googling and reading. It is interesting that for every little things u want to do you have to download them form a library and you feel really lost. Hence I used something more User friendly the https://manual.cs50.io/ it helps to reduce the amount of input.
+So it goes back to googling and reading. It is interesting that for every little things u want to do you have to download them form a library and you feel really lost. Hence I used something more User friendly the https://manual.cs50.io/ it helps to reduce the amount of input. I used the library cs50.h
+
+With this Code i can get the input of a user 
+
+    string a = get_string("What is your name? ");
+
+With this I can Output the variabel 
+
+    printf("hello, %s\n", a);
+
+The %s is the most bizarre part until now 
+
+## 16.01.26
+
+
+- [ ]
+- [ ]
+- [ ]
+- [ ]
