@@ -43,8 +43,12 @@ The %s is the most bizarre part until now
 
 ## 16.01.26
 
+Arbeitspaket 1
+- [X]
 
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+
+- [x] Arbeitspaket 1
+- [ ] Arbeitspaket 2
+- [ ] Arbeitspaket 3
+- [ ] Arbeitspaket 4
+- [ ] 
