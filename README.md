@@ -43,12 +43,9 @@ The %s is the most bizarre part until now
 
 ## 16.01.26
 
-Arbeitspaket 1
-- [X]
 
+- [ ] update the Tutorial or Vlog rather
+- [ ] build a calculator 
+- [ ] Getting familiar with the comparison operations
+- [ ] Solve advent of Code day one 
 
-- [x] Arbeitspaket 1
-- [ ] Arbeitspaket 2
-- [ ] Arbeitspaket 3
-- [ ] Arbeitspaket 4
-- [ ] 
