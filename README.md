@@ -22,14 +22,14 @@ first we create the file by writing __code hello.c__ for example, this creates a
 
 
 __The Code__ 
-
+```c
 #include <stdio.h>
 
 int main(void)
 {
   printf("hello,World!\n");
 }
-
+```
 This is the Code for hello World. It looks pretty normal but there is a lot of syntax which could result in some anoyning mistakes. The realtion with the Terminal is intressting as it requers more logic.
 
 Compile the code by using __make hello.c__. This creates a compiled version of the source code(hello) that the computur understands. 
@@ -66,7 +66,7 @@ After mastering how to talk to the computer (Output) and listen to it (Input), t
 
 In most languages I've seen, writing an if statement is straightforward. You check if x is greater than y, or if a equals b. In C, the basic math comparisons were exactly what I expected:
 
-```
+```c
 #include <cs50.h>
 #include <stdio.h>
 
@@ -106,8 +106,7 @@ To actually compare the text, I had to use a specific function from the <string.
 
 The Code Here is how I eventually got a password check to work:
 
-C
-
+```c
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h> // Needed for string comparison
@@ -126,4 +125,5 @@ int main(void)
         printf("Access denied.\n");
     }
 }
+```
 It is a bit weird that strcmp returns 0 for "true" (match found), whereas usually 0 means false in programming logic. It’s just another one of those C quirks I have to memorize.
