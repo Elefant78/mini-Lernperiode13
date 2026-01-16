@@ -106,7 +106,7 @@ It didn't.
 
 I learned that in C, string variables (especially when using the CS50 library) are actually pointing to a location in the computer's memory. When you use ==, C doesn't check if the text is the same; it checks if the memory address is the same.
 
-To actually compare the text, I had to use a specific function from the <string.h> library called strcmp (String Compare). It felt very manual compared to Python or JavaScript.
+To actually compare the text, I had to use a specific function from the <string.h> library called `strcmp` (String Compare). It felt very manual compared to Python or JavaScript.
 
 The Code Here is how I eventually got a password check to work:
 
