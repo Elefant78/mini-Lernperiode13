@@ -152,3 +152,22 @@ int main(void)
 }
 ```
 This is buisness as usal. It is just a bit more complex with the complier and always make sure that it is on the desired version. 
+
+I also used a for-loop like this.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int rps = get_int("how often do you want the cat to meow?");
+
+    for(int i = 0; i < rps; i ++)
+    {
+        printf("cat:meow\n");
+    }
+
+}
+```
+
