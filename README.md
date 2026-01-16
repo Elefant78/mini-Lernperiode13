@@ -49,7 +49,9 @@ The %s is the most bizarre part until now
 - [X] Getting familiar with the comparison operations
 - [ ] Solve advent of Code day one 
 
-Getting Familiar with Comparison Operations
+
+
+## Comparison Operations
 After mastering how to talk to the computer (Output) and listen to it (Input), the next logical step was teaching it to think. This means making decisions using conditionals and comparison operations.
 
 In most languages I've seen, writing an if statement is straightforward. You check if x is greater than y, or if a equals b. In C, the basic math comparisons were exactly what I expected:
