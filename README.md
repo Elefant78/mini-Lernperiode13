@@ -30,9 +30,13 @@ int main(void)
   printf("hello,World!\n");
 }
 
-compile the code by using __make hello.c__.
-
 This is the Code for hello World. It looks pretty normal but there is a lot of syntax which could result in some anoyning mistakes. The realtion with the Terminal is intressting as it requers more logic.
+
+Compile the code by using __make hello.c__. This creates a compiled version of the source code(hello) that the computur understands. 
+
+Afterwards we write __./hello__ to run this complied version of the code
+
+
 
 Next I wated to take Input of the User like a Console.readline. 
 So it goes back to googling and reading. It is interesting that for every little things u want to do you have to download them form a library and you feel really lost. Hence I used something more User friendly the https://manual.cs50.io/ it helps to reduce the amount of input. I used the library cs50.h
@@ -62,15 +66,34 @@ After mastering how to talk to the computer (Output) and listen to it (Input), t
 
 In most languages I've seen, writing an if statement is straightforward. You check if x is greater than y, or if a equals b. In C, the basic math comparisons were exactly what I expected:
 
-C
+```
+#include <cs50.h>
+#include <stdio.h>
 
-int x = 5;
-int y = 10;
-
-if (x < y) 
+int main(void)
 {
-    printf("x is smaller than y\n");
+    int x = get_int("what is x? " );
+    int y = get_int("what is y? ");
+
+    if (x < y)
+    {
+        printf("x is less than y\n");
+
+    }
+    else if (x > y)
+    {
+        printf("x is more than y\n");
+
+    }
+
+    else
+    {
+        printf("x equal to y\n");
+    }
+
 }
+``` 
+
 However, the "Old School" nature of C struck again when I tried to compare text.
 
 The String Problem I naively tried to compare two strings using ==, which is standard in many modern languages. I wrote code asking the user for a password, expecting if (password == "secret") to work.
