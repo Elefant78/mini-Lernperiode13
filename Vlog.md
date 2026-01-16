@@ -55,16 +55,6 @@ The %s is the most bizarre part until now
 
 The use of comments is with // , /* */like in Java, JavaScript or in my beloved C#. 
 
-## 16.01.26
-
-
-- [ ] update the Tutorial or Vlog rather
-- [ ] build a calculator 
-- [X] getting familiar with the comparison operations
-- [ ] complete the last part of the tutorial 
-
-
-
 ## Comparison Operations
 After mastering how to talk to the computer (Output) and listen to it (Input), the next logical step was teaching it to think. This means making decisions using conditionals and comparison operations.
 
