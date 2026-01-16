@@ -46,6 +46,53 @@ The %s is the most bizarre part until now
 
 - [ ] update the Tutorial or Vlog rather
 - [ ] build a calculator 
-- [ ] Getting familiar with the comparison operations
+- [X] Getting familiar with the comparison operations
 - [ ] Solve advent of Code day one 
 
+Getting Familiar with Comparison Operations
+After mastering how to talk to the computer (Output) and listen to it (Input), the next logical step was teaching it to think. This means making decisions using conditionals and comparison operations.
+
+In most languages I've seen, writing an if statement is straightforward. You check if x is greater than y, or if a equals b. In C, the basic math comparisons were exactly what I expected:
+
+C
+
+int x = 5;
+int y = 10;
+
+if (x < y) 
+{
+    printf("x is smaller than y\n");
+}
+However, the "Old School" nature of C struck again when I tried to compare text.
+
+The String Problem I naively tried to compare two strings using ==, which is standard in many modern languages. I wrote code asking the user for a password, expecting if (password == "secret") to work.
+
+It didn't.
+
+I learned that in C, string variables (especially when using the CS50 library) are actually pointing to a location in the computer's memory. When you use ==, C doesn't check if the text is the same; it checks if the memory address is the same.
+
+To actually compare the text, I had to use a specific function from the <string.h> library called strcmp (String Compare). It felt very manual compared to Python or JavaScript.
+
+The Code Here is how I eventually got a password check to work:
+
+C
+
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h> // Needed for string comparison
+
+int main(void) 
+{
+    string answer = get_string("What's the password? ");
+
+    // strcmp returns 0 if the strings are identical
+    if (strcmp(answer, "mellon") == 0) 
+    {
+        printf("Welcome, friend.\n");
+    }
+    else 
+    {
+        printf("Access denied.\n");
+    }
+}
+It is a bit weird that strcmp returns 0 for "true" (match found), whereas usually 0 means false in programming logic. It’s just another one of those C quirks I have to memorize.
