@@ -15,9 +15,13 @@ I personally decided to g for C as it seemed like the grand father of Programmin
 ## Action
 
 ### Hello World
-The first task seemed pretty easy to follow, creating the classic hello world. This seemed pretty easy as it is usally give by deafualt when you create a new projekt. But as is started C on VSC, nothing. Then I googled how I can print Hello, world. I took the input wrote it into my file and wanted to run it but there was no run button. I first had to compile the Source Code into a 0 and 1 which the Computers understands. To do that you use the Terminal, in which you can compile the Code written into a language that the Computers understands. And with this you can run the programm.
+The first task seemed pretty easy to follow, creating the classic hello world. This seemed pretty easy as it is usally give by deafualt when you create a new projekt. But as is started C on VSC, nothing. Then I googled how I can print Hello, world. I took the input wrote it into my file and wanted to run it but there was no run button. I first had to compile the Source Code into a 0 and 1 which the Computers understands. To do that you use the Terminal, in which you can compile the Code written into a language that the computers understands. And with this you can run the programm.
 
-The Code 
+### How to run the code in C
+first we create the file by writing __code hello.c__ for example, this creates a file where we can write source code. 
+
+
+__The Code__ 
 
 #include <stdio.h>
 
@@ -25,6 +29,8 @@ int main(void)
 {
   printf("hello,World!\n");
 }
+
+compile the code by using __make hello.c__.
 
 This is the Code for hello World. It looks pretty normal but there is a lot of syntax which could result in some anoyning mistakes. The realtion with the Terminal is intressting as it requers more logic.
 
