@@ -51,6 +51,10 @@ With this I can Output the variabel
 
 The %s is the most bizarre part until now 
 
+### Comments
+
+The use of comments is with // , /* */like in Java, JavaScript or in my beloved C#. 
+
 ## 16.01.26
 
 
