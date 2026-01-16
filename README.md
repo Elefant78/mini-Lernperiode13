@@ -56,7 +56,7 @@ The %s is the most bizarre part until now
 
 - [ ] update the Tutorial or Vlog rather
 - [ ] build a calculator 
-- [X] Getting familiar with the comparison operations
+- [X] getting familiar with the comparison operations
 - [ ] complete the last part of the tutorial 
 
 
@@ -127,3 +127,24 @@ int main(void)
 }
 ```
 It is a bit weird that strcmp returns 0 for "true" (match found), whereas usually 0 means false in programming logic. It’s just another one of those C quirks I have to memorize.
+
+## Loops
+For the next part of i decieded to write a cute little loop, in which a cat meows for how often the user wants it to. For example 6 or 7 times.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int rps = get_int("how often do you want the cat to meow?");
+
+    while (rps>0)
+    {
+        printf("cat:meow\n");
+        rps --;
+    }
+
+}
+```
+This is buisness as usal. It is just a bit more complex with the complier and always make sure that it is on the desired version. 
