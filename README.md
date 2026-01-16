@@ -47,7 +47,7 @@ The %s is the most bizarre part until now
 - [ ] update the Tutorial or Vlog rather
 - [ ] build a calculator 
 - [X] Getting familiar with the comparison operations
-- [ ] Solve advent of Code day one 
+- [ ] complete the last part of the tutorial 
 
 
 
