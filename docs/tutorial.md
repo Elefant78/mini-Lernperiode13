@@ -1,64 +1,102 @@
-# How to Build a Simple Calculator in C
+# How to Build an Advanced Calculator in C
 
 ## Goal
-In this tutorial, you will learn how to create a simple console-based calculator in C. This program will prompt the user for two numbers, add them together, and display the result. We will focus on handling user input and ensuring our variables are large enough to handle the math.
+In this tutorial, you will learn how to create a versatile console-based calculator in C. Unlike basic addition programs, this calculator will handle **decimal numbers** (e.g., 5.5 + 2.1), support **four operations** (+, -, *, /), and include safety checks to prevent crashing when dividing by zero.
 
 ## Prerequisites
 We'll assume you already know the basics of C and can:
-* Open a terminal and navigate directories.
-* Edit a `.c` file in VS Code.
-* Compile code using `make` (e.g., `make calculator`).
-* Include the `cs50` library in your environment.
+* Create and edit a `.c` file.
+* Compile code using `make` in the terminal.
+* Use the `cs50` library for basic input.
+* Understand basic `if/else` logic.
 
 ## Key Concepts
 
-### 1. Handling Large Numbers (`long` vs `int`)
-We will focus on explaining the **`long`** data type. In C, a standard `int` can only hold numbers up to about 2 billion. If a user tries to add 2 billion + 2 billion, an `int` will crash or give a wrong answer (this is called "Integer Overflow").
+### 1. Floating Point Numbers (`double`)
+Standard `int` variables chop off decimal points (e.g., `5 / 2` results in `2`). To get precise results like `2.5`, we must use the **`double`** data type (double-precision floating-point).
 
-To fix this, we use `long` (long integer), which uses 64 bits of memory and can hold massive numbers.
 
-### 2. Format Specifiers
-When printing variables in C, you must tell the computer exactly what type of data is coming.
-* `%i` is used for `int`.
-* `%li` is used for `long`.
+
+### 2. Character Comparison
+We will use the **`char`** type to detect which operation the user wants to perform. In C, single characters must be surrounded by **single quotes** (e.g., `'+'`), not double quotes.
+
+### 3. Logic Flow
+We will use an `if - else if - else` chain to decide which mathematical operation to run based on the user's input.
 
 ## Step-by-Step Implementation
 
-First, include the necessary libraries. `stdio.h` allows us to print to the screen, and `cs50.h` gives us the easy-to-use input functions.
+### Step 1: Inputs
+First, include your libraries. Inside `main`, we need to ask the user for three things: the first number, the operation symbol, and the second number.
 
 ```c
 #include <cs50.h>
 #include <stdio.h>
-```
-Next, inside our main function, we will ask the user for input. We use get_long instead of get_int to be safe.
 
-C
-```
 int main(void)
 {
-    // Get input from user
-    long x = get_long("x: ");
-    long y = get_long("y: ");
-Finally, we print the result. Note the usage of %li in the code snippet below:
+    printf("--- Advanced Calculator ---\n");
+
+    // Use get_double to support decimals
+    double x = get_double("First number: ");
+    
+    // Use get_char to capture symbols like +, -, *, /
+    char op = get_char("Operation (+, -, *, /): ");
+    
+    double y = get_double("Second number: ");
 ```
+Step 2: Handling Logic and Operations
+Now we check what op (operation) the user provided. We also format the output using %.2f to show exactly two decimal places.
+
 C
 
-    // Output the result
-    printf("Result: %li\n", x + y);
+    // Check for Addition
+    if (op == '+')
+    {
+        printf("Result: %.2f\n", x + y);
+    }
+    // Check for Subtraction
+    else if (op == '-')
+    {
+        printf("Result: %.2f\n", x - y);
+    }
+    // Check for Multiplication
+    else if (op == '*')
+    {
+        printf("Result: %.2f\n", x * y);
+    }
+Step 3: Division and Safety
+Division requires special care. In programming, dividing by 0 is illegal and can crash programs or cause weird errors. We must check for it first.
+
+C
+
+    else if (op == '/')
+    {
+        // Safety Check: Prevent division by zero
+        if (y == 0)
+        {
+            printf("Error: Cannot divide by zero.\n");
+        }
+        else
+        {
+            printf("Result: %.2f\n", x / y);
+        }
+    }
+    // Handle invalid inputs
+    else
+    {
+        printf("Error: Invalid operation.\n");
+    }
 }
 Expected Result
-When you run your program, it should look like this animation below. The program pauses, waits for you to type a number, and then calculates the sum instantly.
+When the program runs, the user should be able to perform decimal math.
 
-(Note: If you don't have a GIF yet, imagine the terminal asking "x: 5", "y: 10", and printing "Result: 15")
+(The user types 10.5, then selects '/', then types 2, and the result 5.25 appears)
 
 Troubleshooting: What could go wrong?
-Problem: The output looks weird or is a random number. Solution: Check your Format Specifier. A common mistake is using %s (string) or %i (integer) when trying to print a long.
+1. The "Single Quote" Mistake A very common error in C is mixing up quotes.
 
-If you write:
+"A" is a String (text).
 
-C
-```
-// WRONG
-printf("Result: %i\n", x + y);
-```
-The compiler might give you a warning, and the printed number will be incorrect if the sum is very large. Always ensure your placeholder matches your variable type (%li for long).
+'A' is a Char (single character). If you write if (op == "+"), the code will not compile or will fail. Always use single quotes for single characters.
+
+2. Integer Division If you accidentally use int x and int y instead of double, 5 / 2 will print 2.00 instead of 2.50. Ensure you initialize your variables as double from the start.
