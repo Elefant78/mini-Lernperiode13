@@ -161,3 +161,111 @@ int main(void)
 }
 ```
 
+## Building a Calculator
+After the cat loop, I wanted to build something that actually felt like a tool: a calculator. My goal was to take two numbers from the user and add them. It sounded simple, but C is strictly typed, which led to a realization about how computers handle math.
+
+I started using int (integers), but I quickly realized that if I wanted to do division later, integers wouldn't work because they cut off the decimal points (e.g., 1 / 3 becomes 0). I learned I needed long for bigger numbers or float/double for decimals.
+
+__The Code__ Here is the basic addition calculator I built using the library:
+
+
+```C
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // usage of get_long to support larger numbers
+    long x = get_long("x: ");
+    long y = get_long("y: ");
+
+    printf("%li\n", x + y);
+}
+```
+The syntax %li inside the printf was new to me—it stands for "long integer". In C#, the computer usually guesses what you are trying to print, but here you have to tell printf exactly what type of data is coming.
+
+## File Inputs (Working with Files)
+This was the hardest part of the week. Up until now, I typed everything into the console. But for real tasks, you need to read data from external files.
+
+I googled how to read a file in C and it looked terrifying compared to modern languages. You have to create a "File Pointer" (FILE *), open the file, check if it actually exists (to avoid crashing), read it, and then—very importantly—close it to free up memory.
+
+__The Code__ I created a simple text file named phonebook.csv and wrote a program to add names to it.
+
+C
+```
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    // "a" stands for append, so we don't overwrite the file
+    FILE *file = fopen("phonebook.csv", "a");
+
+    // Safety check
+    if (file == NULL)
+    {
+        return 1;
+    }
+
+    char *name = get_string("Name: ");
+    char *number = get_string("Number: ");
+
+    // fprintf prints to a file instead of the terminal
+    fprintf(file, "%s,%s\n", name, number);
+
+    fclose(file);
+}
+```
+The concept of fopen and fclose reminded me that in C, you are responsible for everything. If you open a door, you must close it.
+
+## Advent of Code (Day 1)
+To test my new file-reading skills, I attempted Day 1 of "Advent of Code". The puzzle gives you a list of numbers (calibration values) hidden in text and asks you to combine the first and last digit.
+
+It was a struggle combining the logic. I had to:
+
+Open the input file.
+
+Read it line by line using a loop.
+
+Find the integers in the string (using isdigit which I found in the manual).
+
+Sum them up.
+
+It took me a while to get the compiler to agree with me, but seeing the correct solution pop up in the terminal felt satisfying. It showed me that C is fast, but writing the logic takes 3x longer than in Python.
+
+Refactoring: Code Conventions (30.01.26)
+Looking back at my calculator and my Hello World code, it worked, but it looked messy. I realized that writing code isn't just about the computer understanding it, but about humans reading it.
+
+I spent this session rewriting my calculator to follow proper C conventions (often called "Style Guide").
+
+Changes I made:
+
+Indentation: I made sure everything inside main was indented by 4 spaces strictly.
+
+Variable Names: instead of naming variables a or n, I renamed them to first_number or user_input so I know what they are.
+
+Comments: I added comments at the top of the file explaining what the program does.
+
+The Refactored Code
+
+C
+
+```
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    int first_number = get_int("x: ");
+
+    // Prompt user for y
+    int second_number = get_int("y: ");
+
+    // Perform addition
+    printf("%i\n", first_number + second_number);
+}
+```
+It does the exact same thing as before, but now if I look at it in 4 weeks, I will actually understand what I wrote.
+
